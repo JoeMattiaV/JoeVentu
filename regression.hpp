@@ -2,6 +2,7 @@
 #define REGRESSION_HPP
 
 #include <stdexcept>
+#include <vector>
 
 struct Result {
   double A;
@@ -9,12 +10,13 @@ struct Result {
 };
 
 class Regression {
-  int N_{};
-  double sum_x_{};
-  double sum_y_{};
-  double sum_xy_{};
-  double sum_x2_{};
+  struct Point {
+    double x;
+    double y;
+  };
 
+  std::vector<Point> points_{};
+  
  public:
   int size() const;
 
